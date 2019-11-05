@@ -1,0 +1,20 @@
+﻿<Window x:Class="Uppgift4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uppgift4"
+        mc:Ignorable="d"
+        Title="Veckodagarna" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="btnMonday"  Content="Måndag" HorizontalAlignment="Left" Margin="81,173,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.949,-7.383" Click="btnMonday_Click"/>
+        <Button x:Name="btnTuesday" Content="Tisdag" HorizontalAlignment="Left" Margin="155,224,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.469,3.512" Click="btnTuesday_Click"/>
+        <Button x:Name="btnWednesday" Content="Onsdag" HorizontalAlignment="Left" Margin="81,47,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.528,7.173" Click="btnWednesday_Click"/>
+        <Button x:Name="btnThursday" Content="Torsdag" HorizontalAlignment="Left" Margin="220,173,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.627,5.618" Click="btnThursday_Click"/>
+        <Button x:Name="btnFriday" Content="Fredag" HorizontalAlignment="Left" Margin="220,47,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.798,-1.889" Click="btnFriday_Click"/>
+        <Button x:Name="btnSaturday"  Content="Lördag" HorizontalAlignment="Left" Margin="287,105,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.469,1.922" Click="btnSaturday_Click"/>
+        <Button x:Name="btnSunday"  Content="Söndag" HorizontalAlignment="Left" Margin="33,105,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.072,0.586" Click="btnSunday_Click"/>
+        <Label x:Name="dayField"  Content="Vilken är din favoritdag?" HorizontalAlignment="Left" Margin="129,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,-2.999"/>
+
+    </Grid>
+</Window>
