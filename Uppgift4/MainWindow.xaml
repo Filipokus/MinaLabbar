@@ -7,13 +7,13 @@
         mc:Ignorable="d"
         Title="Veckodagarna" Height="300" Width="400" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Button x:Name="btnMonday"  Content="Måndag" HorizontalAlignment="Left" Margin="81,173,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.949,-7.383" Click="btnMonday_Click"/>
-        <Button x:Name="btnTuesday" Content="Tisdag" HorizontalAlignment="Left" Margin="155,224,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.469,3.512" Click="btnTuesday_Click"/>
-        <Button x:Name="btnWednesday" Content="Onsdag" HorizontalAlignment="Left" Margin="81,47,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.528,7.173" Click="btnWednesday_Click"/>
-        <Button x:Name="btnThursday" Content="Torsdag" HorizontalAlignment="Left" Margin="220,173,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.627,5.618" Click="btnThursday_Click"/>
-        <Button x:Name="btnFriday" Content="Fredag" HorizontalAlignment="Left" Margin="220,47,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.798,-1.889" Click="btnFriday_Click"/>
-        <Button x:Name="btnSaturday"  Content="Lördag" HorizontalAlignment="Left" Margin="287,105,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.469,1.922" Click="btnSaturday_Click"/>
-        <Button x:Name="btnSunday"  Content="Söndag" HorizontalAlignment="Left" Margin="33,105,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.072,0.586" Click="btnSunday_Click"/>
+        <Button x:Name="btnFriday" Content="Fredag" HorizontalAlignment="Left" Margin="220,47,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.798,-1.889" Click="btnFriday_Click" TabIndex="4"/>
+        <Button x:Name="btnMonday"  Content="Måndag" HorizontalAlignment="Left" Margin="81,173,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.949,-7.383" Click="btnMonday_Click" TabIndex="0"/>
+        <Button x:Name="btnWednesday" Content="Onsdag" HorizontalAlignment="Left" Margin="81,47,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.528,7.173" Click="btnWednesday_Click" TabIndex="2"/>
+        <Button x:Name="btnSaturday"  Content="Lördag" HorizontalAlignment="Left" Margin="287,105,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.469,1.922" Click="btnSaturday_Click" TabIndex="5"/>
+        <Button x:Name="btnThursday" Content="Torsdag" HorizontalAlignment="Left" Margin="220,173,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.627,5.618" Click="btnThursday_Click" TabIndex="3"/>
+        <Button x:Name="btnSunday"  Content="Söndag" HorizontalAlignment="Left" Margin="33,105,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.072,0.586" Click="btnSunday_Click" TabIndex="6"/>
+        <Button x:Name="btnTuesday" Content="Tisdag" HorizontalAlignment="Left" Margin="155,224,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.469,3.512" Click="btnTuesday_Click" TabIndex="1"/>
         <Label x:Name="dayField"  Content="Vilken är din favoritdag?" HorizontalAlignment="Left" Margin="129,120,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.494,-2.999"/>
 
     </Grid>

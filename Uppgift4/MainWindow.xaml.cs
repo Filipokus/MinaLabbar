@@ -24,9 +24,9 @@ namespace Uppgift4
         {
             InitializeComponent();
         }
-        private void btnMonday_Click(object sender, RoutedEventArgs e)
+            private void btnMonday_Click(object sender, RoutedEventArgs e)
         {
-            dayField.Content = $"Din favoritdag är Måndag";
+            dayField.Content = $"Din favoritdag är Måndag";      
         }
         private void btnTuesday_Click(object sender, RoutedEventArgs e)
         {
