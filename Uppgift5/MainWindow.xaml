@@ -1,0 +1,19 @@
+﻿<Window x:Class="Uppgift5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uppgift5"
+        mc:Ignorable="d"
+        Title="Miniräknare" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="numberOneBox" HorizontalAlignment="Left" Height="23" Margin="49,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="numberTwoBox" HorizontalAlignment="Left" Height="23" Margin="203,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnCount" Background="AntiqueWhite" Content="Beräkna" HorizontalAlignment="Left" Margin="248,111,0,0" VerticalAlignment="Top" Width="75" Click="btnCount_Click"/>
+        <TextBox x:Name="sumBox" HorizontalAlignment="Left" Height="23" Margin="121,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnClear" Background="White" Content="Rensa" HorizontalAlignment="Left" Margin="166,184,0,0" VerticalAlignment="Top" Width="75" Click="btnClear_Click"/>
+        <Label Content="Tal 1" HorizontalAlignment="Left" Margin="49,57,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tal 2" HorizontalAlignment="Left" Margin="203,57,0,0" VerticalAlignment="Top"/>
+        <Label Content="Summa" HorizontalAlignment="Left" Margin="121,130,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
