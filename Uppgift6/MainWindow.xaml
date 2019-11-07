@@ -13,10 +13,10 @@
         <Button x:Name="btnDivide" Content="/" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top" Width="75" Click="btnDivide_Click"/>
         <TextBox x:Name="numberOneBox" HorizontalAlignment="Left" Height="23" Width="120" Margin="30,0,0,80" TextWrapping="Wrap"/>
         <TextBox x:Name="numberTwoBox" HorizontalAlignment="Left" Height="23" Width="120" Margin="240,0,0,80" TextWrapping="Wrap"/>
-        <TextBox x:Name="resultBox" HorizontalAlignment="Center" Height="23" Margin="0,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnClear" Content="Rensa" Background="White" HorizontalAlignment="Center" Margin="0,225,0,0" VerticalAlignment="Top" Width="75" Click="btnClear_Click"/>
+        <TextBox x:Name="resultBox" HorizontalAlignment="Center" Height="23" Margin="0,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnClear" Content="Rensa" Background="White" HorizontalAlignment="Center" Margin="0,205,0,0" VerticalAlignment="Top" Width="75" Click="btnClear_Click"/>
         <Label Content="Tal 1" Height="25" Margin="70,0,290,120"/>
         <Label Content="Tal 2" Height="25" Margin="290,0,70,120"/>
-        <Label x:Name="resultLabel" Content="Resultat" HorizontalAlignment="Center" Margin="0,170,0,70"/>
+        <Label x:Name="resultLabel" Content="Resultat" HorizontalAlignment="Center" Margin="0,150,0,90"/>
     </Grid>
 </Window>

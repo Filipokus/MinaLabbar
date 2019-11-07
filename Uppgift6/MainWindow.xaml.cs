@@ -27,37 +27,37 @@ namespace Uppgift6
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            int numberOne = int.Parse(numberOneBox.Text);
-            int numberTwo = int.Parse(numberTwoBox.Text);
-            int sum = numberOne + numberTwo;
+            double numberOne = double.Parse(numberOneBox.Text);
+            double numberTwo = double.Parse(numberTwoBox.Text);
+            double sum = numberOne + numberTwo;
             resultBox.Text = $"{sum}";
             resultLabel.Content = "Summa";
         }
 
         private void btnSubtract_Click(object sender, RoutedEventArgs e)
         {
-            int numberOne = int.Parse(numberOneBox.Text);
-            int numberTwo = int.Parse(numberTwoBox.Text);
-            int difference = numberOne - numberTwo;
+            double numberOne = double.Parse(numberOneBox.Text);
+            double numberTwo = double.Parse(numberTwoBox.Text);
+            double difference = numberOne - numberTwo;
             resultBox.Text = $"{difference}";
             resultLabel.Content = "Differens";
         }
 
         private void btnMultiply_Click(object sender, RoutedEventArgs e)
         {
-            int numberOne = int.Parse(numberOneBox.Text);
-            int numberTwo = int.Parse(numberTwoBox.Text);
-            int product = numberOne * numberTwo;
+            double numberOne = double.Parse(numberOneBox.Text);
+            double numberTwo = double.Parse(numberTwoBox.Text);
+            double product = numberOne * numberTwo;
             resultBox.Text = $"{product}";
             resultLabel.Content = "Produkt";
         }
 
         private void btnDivide_Click(object sender, RoutedEventArgs e)
         {
-            int numberOne = int.Parse(numberOneBox.Text);
-            int numberTwo = int.Parse(numberTwoBox.Text);
-            int quotient = numberOne / numberTwo;
-            resultBox.Text = $"{Math.Round((Decimal)quotient, 2)}";
+            double numberOne = double.Parse(numberOneBox.Text);
+            double numberTwo = double.Parse(numberTwoBox.Text);
+            double quotient = numberOne / numberTwo;
+            resultBox.Text = $"{Math.Round(quotient, 4)}";
             resultLabel.Content = "Kvot";
         }
 
