@@ -66,14 +66,7 @@ namespace Uppgift8
             txtNumberOne.Clear();
             txtNumberTwo.Clear();
             txtResult.Clear();
-            if (lblResult.Content == "Resultat")
-            {
-
-            }
-            else
-            {
-                lblResult.Content = "Resultat";
-            }
+            lblResult.Content="Resultat";
         }
     }
 }
