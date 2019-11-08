@@ -1,0 +1,16 @@
+﻿<Window x:Class="Uppgift10.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uppgift10"
+        mc:Ignorable="d"
+        Title="Gissa talet" Height="200" Width="300" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="txtGuess"  HorizontalAlignment="Left" Height="23" Margin="18,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnRandomNumber"  Content="Slumpa" HorizontalAlignment="Left" Margin="196,37,0,0" VerticalAlignment="Top" Width="75" Click="btnRandomNumber_Click"/>
+        <Button x:Name="btnGuess"  Content="Gissa" HorizontalAlignment="Left" Margin="18,63,0,0" VerticalAlignment="Top" Width="75" Click="btnGuess_Click"/>
+        <TextBlock x:Name="txbGuess" HorizontalAlignment="Left" Margin="12,99,0,0" TextWrapping="Wrap" Text="Börja med att slumpa fram ett tal." VerticalAlignment="Top" Width="259" Height="55"/>
+        <Label x:Name="lblGuess" Content="Gissning" HorizontalAlignment="Left" Margin="18,9,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
