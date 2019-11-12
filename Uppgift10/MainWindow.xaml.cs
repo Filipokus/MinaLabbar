@@ -25,30 +25,31 @@ namespace Uppgift10
             InitializeComponent();
         }
         Random slump = new Random();
+        int slumptal;
+        int numberOfTries = 0;
         private void btnRandomNumber_Click(object sender, RoutedEventArgs e)
         {
-            int slumptal = slump.Next(1001);
+            slumptal = slump.Next(1001);
             if (slumptal >= 0)
             {
                 btnGuess.IsEnabled = true;
             }
             txbGuess.Text = "Skriv in din gissning! Det slumpade talet är mellan 0-1000.";
-            lblRandomNumber.Content = slumptal;
         }
 
         private void btnGuess_Click(object sender, RoutedEventArgs e)
         {
             int guess = int.Parse(txtGuess.Text);
-            string randomNumber = lblRandomNumber.Content.ToString();
-            int slumptal = int.Parse(randomNumber);
-            //int numberOfTries = btnGuess;
+            numberOfTries++;
+
             if (guess == slumptal)
             {
-                txbGuess.Text = $"Grattis du gissade {slumptal}, vilket var rätt på !";
+                txbGuess.Text = $"Grattis, {slumptal} är rätt! Du klarade det på {numberOfTries} försök.";
             }
-            if (guess < slumptal - 100)
+
+            else if (guess < slumptal)
             {
-                if (guess < slumptal && guess > slumptal - 100 )
+                if (guess > slumptal - 100 )
                 {
                     txbGuess.Text = $"Nämen! Det slumpade talet är bara lite högre än {guess}!";
                 }
@@ -57,9 +58,10 @@ namespace Uppgift10
                     txbGuess.Text = $"OJOJ! Det slumpade talet är mycket högre än {guess}!";
                 }
             }
-            if (guess > slumptal + 100)
+
+            else if (guess > slumptal)
             {
-                if (guess > slumptal && guess < slumptal + 100)
+                if (guess < slumptal + 100)
                 {
                     txbGuess.Text = $"Nämen! Det slumpade talet är bara lite lägre än {guess}!";
                 }

@@ -12,6 +12,5 @@
         <Button x:Name="btnGuess"  Content="Gissa" HorizontalAlignment="Left" Margin="18,63,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btnGuess_Click"/>
         <TextBlock x:Name="txbGuess" HorizontalAlignment="Left" Margin="12,99,0,0" TextWrapping="Wrap" Text="Börja med att slumpa fram ett tal." VerticalAlignment="Top" Width="259" Height="55"/>
         <Label x:Name="lblGuess" Content="Gissning" HorizontalAlignment="Left" Margin="18,9,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblRandomNumber"  Content="" HorizontalAlignment="Left" Margin="196,11,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.292,-0.316"/>
     </Grid>
 </Window>
