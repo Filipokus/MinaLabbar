@@ -20,12 +20,14 @@ namespace Uppgift11
     /// </summary>
     public partial class MainWindow : Window
     {
-        Random random = new Random();
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        Random random = new Random();
         double unluckiness = 50;
+
         private void btnLessUnluck_Click(object sender, RoutedEventArgs e)
         {
             unluckiness -= 5;
@@ -46,21 +48,25 @@ namespace Uppgift11
             int [] result = new int[numberOfTries];
             int rightWay = 0;
             int wrongWay = 0;
+            prbUnluckiness.Value = unluckiness;
+            int unluck = (int)unluckiness;
             foreach (int tries in result)
             {
-                int sandwich = random.Next(2);
+                int sandwich = random.Next(100);
+                sandwich /= unluck;
+                
                 if (sandwich == 0)
-                {
-                    rightWay++;
-                }
-                else
                 {
                     wrongWay++;
                 }
+                else
+                {
+                    rightWay++;
+                }
             }
+            
             lblRightWay.Content = $"Antal åt rätt håll:{rightWay}";
             lblWrongWay.Content = $"Antal åt rätt håll:{wrongWay}";
-
         }
     }
 }
