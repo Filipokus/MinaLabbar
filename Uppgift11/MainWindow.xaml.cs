@@ -52,7 +52,7 @@ namespace Uppgift11
             int unluck = (int)unluckiness;
             foreach (int tries in result)
             {
-                int sandwich = random.Next(100);
+                int sandwich = random.Next(101);
                 sandwich /= unluck;
                 
                 if (sandwich == 0)
