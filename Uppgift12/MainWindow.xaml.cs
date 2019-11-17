@@ -24,15 +24,43 @@ namespace Uppgift12
         {
             InitializeComponent();
         }
-
+        int timesClicked = 0;
+        int[] numbers = new int[5];
+        double average;
         private void btnNumber_Click(object sender, RoutedEventArgs e)
         {
-            double number = double.Parse(txtNumber.Text);
-            double [] numbers;
-            for (int i = 0; i < 5; i++)
+            int number = int.Parse(txtNumber.Text);
+            lbxNumbers.ItemsSource = null;
+            for (int i = timesClicked; i < timesClicked+1; i++)
             {
                 numbers[i] = number;
             }
+            timesClicked++;
+            lbxNumbers.ItemsSource = numbers;
+            if (lbxNumbers.HasItems == true)
+            {
+                average = (double)numbers.Sum()/ (double)timesClicked;
+                txtAverage.Text = average.ToString();
+            }
+            if (timesClicked == 5)
+            {
+                btnNumber.IsEnabled = false;
+                txtAverage.Focus();
+            }
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                numbers[i]= 0;
+            }
+            lbxNumbers.ItemsSource = null;
+            txtNumber.Clear();
+            txtAverage.Clear();
+            btnNumber.IsEnabled = true;
+            timesClicked = 0;
+            txtNumber.Focus();
         }
     }
 }
