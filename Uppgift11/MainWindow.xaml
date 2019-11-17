@@ -17,6 +17,6 @@
         <Button x:Name="btnStart" Content="Starta" HorizontalAlignment="Left" Margin="274,135,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1.196,0.484" Click="btnStart_Click"/>
         <Label Content="Utfall" HorizontalAlignment="Left" Margin="136,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.535,0.231"/>
         <Label x:Name="lblRightWay" Content="Antal åt rätt håll: " HorizontalAlignment="Left" Margin="123,198,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblWrongWay" Content="Antal åt rätt håll: " HorizontalAlignment="Left" Margin="123,225,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblWrongWay" Content="Antal åt fel håll: " HorizontalAlignment="Left" Margin="123,225,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -66,7 +66,7 @@ namespace Uppgift11
             }
             
             lblRightWay.Content = $"Antal åt rätt håll:{rightWay}";
-            lblWrongWay.Content = $"Antal åt rätt håll:{wrongWay}";
+            lblWrongWay.Content = $"Antal åt fel håll:{wrongWay}";
         }
     }
 }
