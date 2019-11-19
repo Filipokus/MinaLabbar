@@ -138,23 +138,18 @@ namespace Uppgift15
         }
         public string Jibberish(string textToTranslate)
         {
-            string translatedText = null;
-            translatedText = textToTranslate;
-            foreach (char letter in textToTranslate)
-            {
-                if (IsLowerCaseVowel(letter) == true)
+            string translatedText = textToTranslate;
+                foreach (char letter in translatedText)
                 {
-                   translatedText.Replace(letter, char.Parse("ö"));
+                    if (IsLowerCaseVowel(letter) == true)
+                    {
+                        translatedText = translatedText.Replace(letter, char.Parse("ö"));
+                    }
+                    else if (IsUpperCaseVowel(letter) == true)
+                    {
+                        translatedText = translatedText.Replace(letter, char.Parse("Ö"));
+                    }
                 }
-                else if (IsUpperCaseVowel(letter) == true)
-                {
-                   translatedText.Replace(letter, char.Parse("Ö"));
-                }
-                //else
-                //{
-                //    translatedText[] = textToTranslate[letter];
-                //}
-            }
             return translatedText;
         }
 

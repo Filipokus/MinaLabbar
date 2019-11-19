@@ -28,13 +28,12 @@ namespace Uppgift15
         private void BtnTranslate_Click(object sender, RoutedEventArgs e)
         {
             string textToTranslate = txtOriginal.Text;
-          
+
             int NumberOfVowels = programLogic.NumberOfVowels(textToTranslate);
             lblNumberOfVowels.Content = $"Antal vokaler: {NumberOfVowels}";
 
-           
             string translatedText = programLogic.Jibberish(textToTranslate);
-            txbTranslation.Text = translatedText;
+            txtTranslation.Text = translatedText;
         }
     }
 }

@@ -8,10 +8,10 @@
         Title="Rotvälska" Height="300" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="Fyll i text här" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtOriginal" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" HorizontalAlignment="Left" Height="118" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132"/>
+        <TextBox x:Name="txtOriginal" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" HorizontalAlignment="Left" Height="118" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
         <Label x:Name="lblNumberOfVowels" Content="Antal vokaler:" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" RenderTransformOrigin="2.377,0.718" Width="132"/>
-        <Button x:Name="btnTranslate"  Content="Översätt" HorizontalAlignment="Left" Margin="67,164,0,0" VerticalAlignment="Top" Width="75" Click="BtnTranslate_Click"/>
-        <TextBlock x:Name="txbTranslation" HorizontalAlignment="Left" Margin="151,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="118" Width="132"/>
+        <Button x:Name="btnTranslate"  Content="Översätt" HorizontalAlignment="Left" Margin="54,164,0,0" VerticalAlignment="Top" Width="75" Click="BtnTranslate_Click"/>
+        <TextBox x:Name="txtTranslation" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" IsReadOnly="True"  HorizontalAlignment="Left" Height="118" Margin="151,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="119"/>
         <Label Content="Rotvälsk översättning" HorizontalAlignment="Left" Margin="151,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.149,0.538"/>
 
     </Grid>
