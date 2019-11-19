@@ -25,7 +25,7 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void btnName_Click(object sender, RoutedEventArgs e)
+        private void BtnName_Click(object sender, RoutedEventArgs e)
         {
             String name;
             name = nameBox.Text;
