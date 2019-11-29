@@ -21,42 +21,37 @@ namespace Banken
         Customer customer;
         List<Customer> customers = new List<Customer>();
         BankAccount selectedAccount;
+        Customer selectedCustomer;
         public MainWindow()
         {
             InitializeComponent();
+            //Om det finns sparade kunder presenteras kundregistret
             if (File.Exists("customers.bin"))
             {
                 customers = (List<Customer>)FileOperations.Deserialize("customers.bin");
                 CboCustomer.ItemsSource = customers;
             }
         }
-
+        /// <summary>
+        /// Skapar en kund som läggs in i kundregistret om alla strängar innehåller < 0 tecken
+        /// </summary>
+        /// <param name="cellphone"></param>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="adress"></param>
+        /// <param name="socialSecurityNumber"></param>
+        /// <returns></returns>
         public bool CreateCustomer(string cellphone, string firstName, string lastName, string adress, string socialSecurityNumber) 
         {
+            if (cellphone.Length != 0 && firstName.Length != 0 && lastName.Length != 0 && adress.Length != 0 && socialSecurityNumber.Length != 0)
+            {
             customer = new Customer(cellphone, firstName, lastName, adress, socialSecurityNumber);
             customers.Add(customer);
             FileOperations.Serialize(customers, "customers.bin");
             return true;
+            }
+            return false;
         }
-        //public bool IsValidNumber(string stringToTest)
-        //{
-        //    foreach (char i in stringToTest)
-        //    {
-        //        if (!(stringToTest[i] == 0 || stringToTest[i] == 1 || stringToTest[i] == 2))
-        //        {
-        //            return true;
-        //        }
-        //        else if (!(stringToTest[i] == 3 || stringToTest[i] == 4 || stringToTest[i] == 5))
-        //        {
-        //            return true;
-        //        }
-        //        else if (!(stringToTest[i] == 6 || stringToTest[i] == 7 || stringToTest[i] == 8 || stringToTest[i] == 9))
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //    return true;
-        //}
         /// <summary>
         /// Kod för att välja kund i ComboBoxen
         /// </summary>
@@ -64,10 +59,16 @@ namespace Banken
         /// <param name="e"></param>
         private void BtnSelectCustomer_Click(object sender, RoutedEventArgs e)
         {
-            Customer selectedCustomer;
             selectedCustomer = (Customer)CboCustomer.SelectedItem;
             CboSelectAccount.ItemsSource = null;
-            CboSelectAccount.ItemsSource = selectedCustomer.GetBankAccounts();
+            if (selectedCustomer != null) //Om en kund valts presenteras dess bankkonton
+            {
+                CboSelectAccount.ItemsSource = selectedCustomer.GetBankAccounts();
+            }
+            else
+            {
+                MessageBox.Show("Välj en kund först");
+            }
         }
 
         /// <summary>
@@ -77,8 +78,18 @@ namespace Banken
         /// <param name="e"></param>
         private void BtnSelectAccount_Click(object sender, RoutedEventArgs e)
         {
+            
             selectedAccount = null;
             selectedAccount = (BankAccount)CboSelectAccount.SelectedItem;
+            LstTransactions.ItemsSource = null;
+            if (selectedAccount != null) //Presenterar de senaste transaktionerna på kontot OM ett konto valts
+            {
+                LstTransactions.ItemsSource = selectedAccount.GetTransactions();
+            }
+            else
+            {
+                MessageBox.Show("Välj ett konto först");
+            }
         }
 
         /// <summary>
@@ -88,25 +99,46 @@ namespace Banken
         /// <param name="e"></param>
         private void BtnSaveTransaction_Click(object sender, RoutedEventArgs e)
         {
-            if (OptDeposit.IsChecked == true)
+            if (selectedAccount != null) //Om konto valts kan koden köras
             {
-                decimal amountToDeposit = decimal.Parse(TxtAmount.Text);
-                selectedAccount.Deposit(amountToDeposit);
-                MessageBox.Show($"{amountToDeposit:C0} har satts in på kontot {selectedAccount}");
+                if (TxtAmount.Text.Length != 0) //Om användaren fyllt i belopp kan koden köras
+                {
+                    if (OptDeposit.IsChecked == true) //Om användaren vill sätta in pengar
+                    {
+                        decimal amountToDeposit = decimal.Parse(TxtAmount.Text);
+                        selectedAccount.Deposit(amountToDeposit);
+                        MessageBox.Show($"{amountToDeposit:C0} har satts in på kontot {selectedAccount}");
+                    }
+                    else
+                    {
+                        decimal amountToWithdraw = decimal.Parse(TxtAmount.Text);
+                        if (selectedAccount.Withdrawal(amountToWithdraw) == true) //Om användaren vill ta ut pengar
+                        {
+                            MessageBox.Show($"Ditt uttag på {amountToWithdraw:C0} från konto {selectedAccount} lyckades!");
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Du saknar täckning på kontot");
+                        }
+                    }
+                    //Sparar transaktionen hos kunden samt visar de senaste transaktionerna i gränssnittet
+                    FileOperations.Serialize(customers, "customers.bin");
+                    LstTransactions.ItemsSource = null;
+                    LstTransactions.ItemsSource = selectedAccount.GetTransactions();
+                }
+                else //Körs om användaren glömt skriva belopp
+                {
+                    MessageBox.Show("Specificera belopp först");
+                }
             }
-            else
+            else if (selectedCustomer != null) //Om inget konto valts
             {
-                decimal amountToWithdraw = decimal.Parse(TxtAmount.Text);
-                if (selectedAccount.Withdrawal(amountToWithdraw) == true)
-                {
-                    MessageBox.Show($"Ditt uttag på {amountToWithdraw:C0} från konto {selectedAccount} lyckades!");
-                }
-                else
-                {
-                    MessageBox.Show($"Det saknas täckning");
-                }
+                MessageBox.Show("Välj ett konto först");
             }
-            FileOperations.Serialize(customers, "customers.bin");
+            else //Om inga val har gjorts
+            {
+                MessageBox.Show("Välj en kund och specificera vilket bankkonto först");
+            }
         }
 
         /// <summary>
@@ -122,18 +154,20 @@ namespace Banken
             lastName = TxtLastname.Text;
             cellphone = TxtPhone.Text;
             adress = TxtAdress.Text;
-
+            //Skapar en kund om samtliga fält är ifyllda
             if (CreateCustomer(cellphone, firstName, lastName, adress, socialSecurityNumber) == true)
             {
                 message = $"{firstName} {lastName} ({socialSecurityNumber}) är tillagd som kund";
+                //Sparar kunden i kundregistret samt i dokumentet customers.bin
+                //Uppdaterar sedan gränssnittet med kundlistan
+                customers = (List<Customer>)FileOperations.Deserialize("customers.bin");
+                CboCustomer.ItemsSource = null;
+                CboCustomer.ItemsSource = customers;
             }
             else
             {
                 message = $"Fyll i samtliga fält, tack.";
             }
-            customers = (List <Customer>)FileOperations.Deserialize("customers.bin");
-            CboCustomer.ItemsSource = null;
-            CboCustomer.ItemsSource = customers;
             MessageBox.Show(message);
         }
 
@@ -144,45 +178,44 @@ namespace Banken
         /// <param name="e"></param>
         private void BtnNewAccount_Click(object sender, RoutedEventArgs e)
         {
-            //Måste fixa så att det går att lägga till konto hos kund 1 sedan kund 2 
-            //och sedan ytterliggare ett konto till kund 1 igen
-            //CboCustomer.SelectedItem.Equals(null);
-            //CboCustomer.SelectedItem.Equals(customer);
-            Customer selectedCustomer;
             selectedCustomer = (Customer)CboCustomer.SelectedItem;
             string accountName = TxtAccountName.Text;
             string requestedAccountType;
-            if (OptSavings.IsChecked == true)
+            if (selectedCustomer != null)
             {
-                requestedAccountType = "SavingsAccount";
-                selectedCustomer.OpenNewAccount(requestedAccountType, accountName);
-            }
-            else if (OptRetirement.IsChecked == true)
-            {
-                requestedAccountType = "RetirementAccount";
-                selectedCustomer.OpenNewAccount(requestedAccountType, accountName);
+                if (OptSavings.IsChecked == true)
+                {
+                    requestedAccountType = "SavingsAccount";
+                    selectedCustomer.OpenNewAccount(requestedAccountType, accountName);
+                }
+                else if (OptRetirement.IsChecked == true)
+                {
+                    requestedAccountType = "RetirementAccount";
+                    selectedCustomer.OpenNewAccount(requestedAccountType, accountName);
+                }
+                else
+                {
+                    if (TxtCredit.Text.Length == 0)
+                    {
+                        requestedAccountType = "CheckingAccount";
+                        selectedCustomer.OpenNewAccount(requestedAccountType, accountName);
+                    }
+                    else
+                    {
+                        requestedAccountType = "CheckingAccount";
+                        decimal credit = decimal.Parse(TxtCredit.Text);
+                        selectedCustomer.OpenNewAccount(credit, accountName);
+                    }
+                }
+                CboSelectAccount.ItemsSource = null;
+                CboSelectAccount.ItemsSource = selectedCustomer.GetBankAccounts();
+                FileOperations.Serialize(customers, "customers.bin");
+                MessageBox.Show($"Kontot har öppnats");
             }
             else
             {
-                if (TxtCredit.Text.Length.Equals(0) == true)
-                {
-                    requestedAccountType = "CheckingAccount";
-                    selectedCustomer.OpenNewAccount(requestedAccountType, accountName);
-                }
-                //else if (IsValidNumber(TxtCredit.Text.ToString()))
-                //{
-                //    decimal credit = decimal.Parse(TxtCredit.Text);
-                //    selectedCustomer.OpenNewAccount(credit);
-                //}
-                else
-                {
-                    decimal credit = decimal.Parse(TxtCredit.Text);
-                    selectedCustomer.OpenNewAccount(credit);
-                }
+                MessageBox.Show("Välj en kund först");
             }
-            CboSelectAccount.ItemsSource = null;
-            CboSelectAccount.ItemsSource = selectedCustomer.GetBankAccounts();
-            FileOperations.Serialize(customers, "customers.bin");
         }
     }
 }

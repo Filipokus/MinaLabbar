@@ -28,24 +28,6 @@ namespace Banken
         {
             return $"{FirstName} {LastName}, {SocialSecurityNumber}".ToString();
         }
-        public BankAccount OpenNewAccount(string requestedAccountType) 
-        {
-            BankAccount accountType;
-            if (requestedAccountType == "RetirementAccount")
-            {
-                accountType = new RetirementAccount();
-            }
-            else if (requestedAccountType == "SavingsAccount")
-            {
-                accountType = new SavingsAccount();
-            }
-            else
-            {
-                accountType = new CheckingAccount();
-            }
-            bankAccounts.Add(accountType);
-            return accountType;
-        }
         public BankAccount OpenNewAccount(string requestedAccountType, string accountName)
         {
             BankAccount accountType;
@@ -53,16 +35,15 @@ namespace Banken
             {
                 accountType = new RetirementAccount(accountName);
             }
-            else
+            else if (requestedAccountType == "SavingsAccount")
             {
                 accountType = new SavingsAccount(accountName);
             }
-            bankAccounts.Add(accountType);
-            return accountType;
-        }
-        public BankAccount OpenNewAccount(decimal credit)
-        {
-            BankAccount accountType = new CheckingAccount(credit);
+            else
+            {
+                decimal credit = 0;
+                accountType = new CheckingAccount(credit, accountName);
+            }
             bankAccounts.Add(accountType);
             return accountType;
         }

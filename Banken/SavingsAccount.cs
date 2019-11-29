@@ -12,11 +12,13 @@ namespace Banken
         public SavingsAccount()
         {
             AccountType = "Sparkonto";
+            transactions = new List<string>();
         }
         public SavingsAccount(string accountName)
         {
             AccountType = "Sparkonto";
             AccountName = accountName;
+            transactions = new List<string>();
         }
     }
 }
