@@ -1,0 +1,27 @@
+﻿<Window x:Class="Godiskalkylatorn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Godiskalkylatorn"
+        mc:Ignorable="d"
+        Title="Godiskalkylatorn" Height="380" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="10,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Namn" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtAge" HorizontalAlignment="Left" Height="23" Margin="10,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Ålder" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAddPerson" Content="Lägg till person" HorizontalAlignment="Left" Margin="35,131,0,0" VerticalAlignment="Top" Width="95" Height="26" Click="btnAddPerson_Click"/>
+        <ListBox x:Name="lbxDistribution" HorizontalAlignment="Left" Height="210" Margin="162,53,0,0" VerticalAlignment="Top" Width="296"/>
+        <RadioButton x:Name="optOriginal" Content="Originalformat" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" IsChecked="True"/>
+        <RadioButton x:Name="optAlphabetical" Content="Bokstavsordning" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="optAge" Content="Ålder" HorizontalAlignment="Left" Margin="10,240,0,0" VerticalAlignment="Top"/>
+        <Label Content="Antal godisar" HorizontalAlignment="Left" Margin="10,265,0,0" VerticalAlignment="Top" RenderTransformOrigin="-11.417,4.917"/>
+        <TextBox x:Name="txtNumberOfCandies" HorizontalAlignment="Left" Height="23" Margin="10,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"/>
+        <Button x:Name="btnDistribute" Content="Fördela" HorizontalAlignment="Left" Margin="74,296,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnDistribute_Click"/>
+        <Label Content="Sortera efter" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,-0.436"/>
+        <Label Content="Såhär blir godisfördelningen:" HorizontalAlignment="Left" Margin="162,27,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnClear" Content="Rensa allt" HorizontalAlignment="Left" Margin="383,296,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-2.735,0.634" Height="23" Click="btnClear_Click"/>
+        <Button x:Name="btnSavePeople" Content="Spara Personerna" HorizontalAlignment="Left" Margin="353,268,0,0" VerticalAlignment="Top" Width="105" RenderTransformOrigin="-2.735,0.634" Height="23" Click="btnSavePeople_Click"/>
+    </Grid>
+</Window>
