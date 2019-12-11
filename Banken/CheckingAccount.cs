@@ -45,7 +45,7 @@ namespace Banken
             {
                 decimal amountToWithdrawLeft = amountToWithdraw - Balance;
                 Balance = Balance - amountToWithdraw;
-                Credit = Credit - amountToWithdrawLeft;
+                //Credit = Credit - amountToWithdrawLeft;
                 transactions.Add(withdrawal);
                 return true;
             }
